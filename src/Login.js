@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { LOGIN_URL } from './api'
 
 const Login = ({ setToken }) => {
     const [username, setUsername] = useState('')
@@ -9,14 +10,14 @@ const Login = ({ setToken }) => {
         // 입력 form이 제출되었을 때 default로 페이지가 새로 고침되는 것을 방지
         e.preventDefault()
 
-        const response = await fetch('http://localhost:8080/api/auth/login', {
+        const response = await fetch(LOGIN_URL, {
             method: 'POST',
             body: new URLSearchParams({
                 username: username,
                 password: password
             }),
         })
-
+        
         console.log(response)
 
         if (!response.ok) {

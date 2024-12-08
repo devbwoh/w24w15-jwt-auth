@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Login from './Login'
 import Signup from './Signup'
+import SongApp from './SongApp'
 import { jwtDecode } from 'jwt-decode'
 
 const App = () => {
@@ -48,7 +49,8 @@ const App = () => {
     return (
         <div>
             {token ? (
-                <h1>{username}님, 반갑습니다.</h1>
+                //<h1>{username}님, 반갑습니다.</h1>
+                <SongApp token={token}/>
             ) : (
                 <div>
                     <button onClick={toggleSignup}>
